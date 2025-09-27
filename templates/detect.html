@@ -76,7 +76,7 @@
                         resultDiv.classList.add('legitimate');
                     }
                 } else {
-                    resultDiv.innerHTML = `<h3>Error:</h3><p>${result.error || 'Something went wrong.'}</p>`;
+                    resultDiv.innerHTML = `<h3>Network Error:</h3><p>${result.error || 'It takes long time to predict.'}</p>`;
                     resultDiv.classList.add('error');
                 }
             } catch (error) {

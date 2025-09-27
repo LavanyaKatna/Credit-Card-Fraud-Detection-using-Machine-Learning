@@ -12,7 +12,7 @@ def migrate_sqlite_to_mongodb():
     """Migrate user data from SQLite to MongoDB Atlas"""
     
     # MongoDB Atlas connection
-    mongo_client = MongoClient("mongodb+srv://DivyaBhogesh:Bhogesh0227@fraudguard.oobjhge.mongodb.net/")
+    mongo_client = MongoClient("url*")
     db = mongo_client.fraud_detection_db
     users_collection = db.users
     
@@ -77,7 +77,7 @@ def verify_migration():
     """Verify that migration was successful"""
     
     # MongoDB Atlas connection
-    mongo_client = MongoClient("mongodb+srv://DivyaBhogesh:Bhogesh0227@fraudguard.oobjhge.mongodb.net/")
+    mongo_client = MongoClient("url*")
     db = mongo_client.fraud_detection_db
     users_collection = db.users
     
@@ -114,7 +114,7 @@ def verify_migration():
 def test_mongodb_connection():
     """Test MongoDB Atlas connection"""
     try:
-        mongo_client = MongoClient("mongodb+srv://DivyaBhogesh:Bhogesh0227@fraudguard.oobjhge.mongodb.net/")
+        mongo_client = MongoClient("url*")
         db = mongo_client.fraud_detection_db
         
         # Test connection by listing collections

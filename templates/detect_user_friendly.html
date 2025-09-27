@@ -43,8 +43,8 @@
                         <i class="fas fa-dollar-sign"></i>
                         Transaction Amount
                     </label>
-                    <input type="number" id="amount" name="amount" step="0.01" required 
-                           class="form-input" placeholder="Enter amount (e.g., 100.50)">
+                    <input type="number" id="amount" name="amount" step="1.00" required 
+                           class="form-input" placeholder="Enter amount (e.g., 100.00)">
                 </div>
 
                 <div class="form-group">
@@ -95,6 +95,34 @@
                         <option value="night">Night (10 PM - 1 AM)</option>
                     </select>
                 </div>
+
+<!--added-->
+                <!-- Transaction ID -->
+    <div class="form-group">
+        <label for="transaction_id" class="form-label">
+            <i class="fas fa-id-badge"></i>
+            Transaction ID
+        </label>
+        <input type="text" id="transaction_id" name="transaction_id" required 
+               class="form-input" placeholder="Enter transaction ID">
+        <small class="form-helper-text" style="color: red; display: none;" id="transactionIdError">
+            Please enter a valid transaction ID (min 10 alphanumeric characters).
+        </small>
+    </div>
+
+    <!-- Upload Screenshot -->
+    <div class="form-group">
+        <label for="screenshot" class="form-label">
+            <i class="fas fa-upload"></i>
+            Upload Screenshot
+        </label>
+        <input type="file" id="screenshot" name="screenshot" accept="image/*" class="form-input">
+    </div>
+
+
+<!--added-->
+
+
             </form>
             
             <div style="text-align: center; margin-top: 2rem;">
@@ -129,7 +157,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div>
-                <p>&copy; 2024 FraudGuard. All rights reserved.</p>
+                <p>&copy; 2025 FraudGuard. All rights reserved.</p>
             </div>
             <div class="footer-links">
                 <a href="/privacy" class="footer-link">Privacy</a>
@@ -335,6 +363,71 @@
                 notification.remove();
             }, 3000);
         }
+//added
+         document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        const transactionInput = document.getElementById("transaction_id");
+        const errorText = document.getElementById("transactionIdError");
+
+        form.addEventListener("submit", function (event) {
+            const value = transactionInput.value.trim();
+            const isValid = /^[a-zA-Z0-9]{10,}$/.test(value); // at least 10 alphanumeric chars
+
+            if (!isValid) {
+                event.preventDefault(); // stop form submission
+                errorText.style.display = "block";
+                transactionInput.classList.add("input-error");
+            } else {
+                errorText.style.display = "none";
+                transactionInput.classList.remove("input-error");
+            }
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+
+        const transactionInput = document.getElementById("transaction_id");
+        const transactionIdError = document.getElementById("transactionIdError");
+
+        const screenshotInput = document.getElementById("screenshot");
+        const screenshotError = document.getElementById("screenshotError");
+
+        form.addEventListener("submit", function (event) {
+            let valid = true;
+
+            // Transaction ID validation
+            const transactionValue = transactionInput.value.trim();
+            const isTransactionValid = /^[a-zA-Z0-9]{10,}$/.test(transactionValue);
+            if (!isTransactionValid) {
+                transactionIdError.style.display = "block";
+                transactionInput.classList.add("input-error");
+                valid = false;
+            } else {
+                transactionIdError.style.display = "none";
+                transactionInput.classList.remove("input-error");
+            }
+
+            // Screenshot validation
+            if (!screenshotInput.files || screenshotInput.files.length === 0) {
+                screenshotError.style.display = "block";
+                screenshotInput.classList.add("input-error");
+                valid = false;
+            } else {
+                screenshotError.style.display = "none";
+                screenshotInput.classList.remove("input-error");
+            }
+
+            if (!valid) {
+                event.preventDefault(); // Stop form submission
+            }
+        });
+    });
+
+
+//added
+
     </script>
 </body>
 </html>

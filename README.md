@@ -5,7 +5,7 @@ A modern, professional fraud detection web application built with Flask, MongoDB
 ## 👥 **Team Members**
 - **Katna Lavanya** - Project Lead & Architect
 - **Molli Tejaswi** - ML Engineer  
-- **Mutchi Divya** - MERN stack developer 
+- **Mutchi Divya** - frontend developer 
 - **Kuppili Shirisha Rao** - Backend Developer
 
 ---
@@ -139,14 +139,7 @@ python -m pytest tests/integration/
      ```
      MONGODB_URI="<your-mongodb-connection-string>"
      ```
-   - **Note:** 😂 Warning, brave backend adventurer!
-                  Before you go spelunking into the magical caves of MongoDB, make sure you grab the secret scroll a.k.a. the correct connection string from the mighty project developer 🧙‍♀️.
-
-                  Because without it, your app will be like a confused squirrel trying to connect to Wi-Fi. 🐿️📡💥
-
-                  TL;DR: Ask the dev or risk summoning the 404 demons. 👻  
-                  — "A wise dev once said, 'Hardcoded strings lead to hard-learned lessons.'"
-                    – Bhogesh 🧠💻
+   -
 ### **Local Development**
 ```bash
 python run_app.py
@@ -190,7 +183,7 @@ python run_app.py
 
 ---
 
-**© 2024 FraudGuard. All rights reserved.**
+**© 2025 FraudGuard. All rights reserved.**
 
 *Built with ❤️ by the FraudGuard Team* 
 
